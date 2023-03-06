@@ -13,12 +13,14 @@ func (l *Logstash) initLoggerConnection() {
 		netConnTemp, err := net.Dial("udp", logstashAddr)
 		if err != nil {
 			log.Printf("[Logstash Logger] Failed to connect to Logstash: %s\n", err)
+			return
 		}
 		l.connection = netConnTemp
 	} else if l.connectionType == "tcp" {
 		netConnTemp, err := net.Dial("tcp", logstashAddr)
 		if err != nil {
 			log.Printf("[Logstash Logger] Failed to connect to Logstash: %s\n", err)
+			return
 		}
 		l.connection = netConnTemp
 	} else {
