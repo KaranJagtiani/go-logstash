@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func (l *logstash) pushJsonMessage(jsonMsg map[string]interface{}) {
+func (l *Logstash) pushJsonMessage(jsonMsg map[string]interface{}) {
 	l.initLoggerConnection()
 
 	if l.connection == nil {
@@ -27,7 +27,7 @@ func (l *logstash) pushJsonMessage(jsonMsg map[string]interface{}) {
 	l.connection.Close()
 }
 
-func (l *logstash) pushStringMessage(stringMsg string) {
+func (l *Logstash) pushStringMessage(stringMsg string) {
 	l.initLoggerConnection()
 
 	if l.connection == nil {

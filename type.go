@@ -2,7 +2,7 @@ package logstash_logger
 
 import "net"
 
-type logstash struct {
+type Logstash struct {
 	host           string
 	port           int
 	connectionType string

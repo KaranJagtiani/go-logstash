@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func (l *logstash) initLoggerConnection() {
+func (l *Logstash) initLoggerConnection() {
 	logstashAddr := fmt.Sprintf("%s:%d", l.host, l.port)
 	if l.connectionType == "udp" {
 		netConnTemp, err := net.Dial("udp", logstashAddr)
@@ -29,7 +29,7 @@ func (l *logstash) initLoggerConnection() {
 	l.setTimeout()
 }
 
-func (l *logstash) setTimeout() {
+func (l *Logstash) setTimeout() {
 	deadline := time.Now().Add(time.Duration(l.timeout) * time.Second)
 	l.connection.SetDeadline(deadline)
 	l.connection.SetWriteDeadline(deadline)
